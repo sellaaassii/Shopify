@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CustomCollection selectedCollection = (CustomCollection) parent.getItemAtPosition(position);
 
-                Intent intent = new Intent(context, OtherActivity2.class);
+                Intent intent = new Intent(context, ProductListActivity.class);
                 intent.putExtra("selectedCollection", selectedCollection);
 
                 startActivity(intent);

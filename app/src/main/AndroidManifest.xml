@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OtherActivity2"
+            android:name=".ProductListActivity"
             android:label="@string/title_activity_other2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
