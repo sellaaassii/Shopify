@@ -27,12 +27,12 @@ public class CustomCollectionAdapter extends ArrayAdapter<CustomCollection> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.collection_item, parent, false);
         }
 
-        TextView collectionTitle = convertView.findViewById(R.id.collection_title);
+        TextView collectionTitleTextView = convertView.findViewById(R.id.collection_title);
 
-        //remove "collection" substring from collection title
-        selectedCollection.setTitle(Splitter.on("collection").split(selectedCollection.getTitle()).iterator().next());
+        //remove "collection" substring from collection title, which corresponds to the name
+        selectedCollection.setName(Splitter.on("collection").split(selectedCollection.getTitle()).iterator().next());
 
-        collectionTitle.setText(selectedCollection.getTitle());
+        collectionTitleTextView.setText(selectedCollection.getName());
 
         return convertView;
     }

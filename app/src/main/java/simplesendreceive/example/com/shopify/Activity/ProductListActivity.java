@@ -43,7 +43,7 @@ public class ProductListActivity extends AppCompatActivity {
         CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra(getString(R.string.selectedCollection));
 
         Toolbar collectionTitle = findViewById(R.id.productToolbar);
-        collectionTitle.setTitle(selectedCollection.getTitle());
+        collectionTitle.setTitle(selectedCollection.getName());
 
         TextView collectionTitleTextView = findViewById(R.id.collectionTitle);
         collectionTitleTextView.setText(selectedCollection.getTitle());

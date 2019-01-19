@@ -50,6 +50,16 @@ public class CustomCollection implements Serializable {
     @Expose
     private Image image;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
     public long getId() {
         return id;
     }
