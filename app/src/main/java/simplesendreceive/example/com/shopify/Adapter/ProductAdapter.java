@@ -43,11 +43,11 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView productNameTextView = convertView.findViewById(R.id.productTitle);
         productNameTextView.setText(selectedProduct.getTitle());
 
-        DownloadImageBackgroundTask newImagePull = new DownloadImageBackgroundTask();
+        DownloadImageBackgroundTask newImageDownload = new DownloadImageBackgroundTask();
         Bitmap bitmapImage;
 
         try {
-            bitmapImage = (Bitmap) newImagePull.execute(selectedProduct.getImage().getSrc()).get();
+            bitmapImage = (Bitmap) newImageDownload.execute(selectedProduct.getImage().getSrc()).get();
 
             ImageView collectionImageView = convertView.findViewById(R.id.productImage);
             collectionImageView.setImageBitmap(bitmapImage);
