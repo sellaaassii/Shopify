@@ -44,13 +44,13 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         productNameTextView.setText(selectedProduct.getTitle());
 
         DownloadImageBackgroundTask newImagePull = new DownloadImageBackgroundTask();
-        Bitmap bit;
+        Bitmap bitmapImage;
 
         try {
-            bit = (Bitmap) newImagePull.execute(selectedProduct.getImage().getSrc()).get();
+            bitmapImage = (Bitmap) newImagePull.execute(selectedProduct.getImage().getSrc()).get();
 
             ImageView collectionImageView = convertView.findViewById(R.id.productImage);
-            collectionImageView.setImageBitmap(bit);
+            collectionImageView.setImageBitmap(bitmapImage);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
