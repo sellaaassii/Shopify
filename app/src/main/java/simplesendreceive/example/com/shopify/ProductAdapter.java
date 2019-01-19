@@ -32,8 +32,9 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         //set the values of the relevant text views to selected product's values
         TextView inventoryTextView = convertView.findViewById(R.id.inventoryAmount);
-        String inventoryQuantity = Integer.toString(selectedProduct.getInventoryQuantity());
-        inventoryTextView.setText("Total Available: " + inventoryQuantity);
+        String inventoryQuantity = "Total Available: " + selectedProduct.getInventoryQuantity();
+
+        inventoryTextView.setText(inventoryQuantity);
 
         TextView productNameTextView = convertView.findViewById(R.id.productTitle);
         productNameTextView.setText(selectedProduct.getTitle());

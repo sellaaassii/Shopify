@@ -1,11 +1,14 @@
 package simplesendreceive.example.com.shopify;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.google.common.base.Splitter;
 
 import java.util.List;
 
@@ -16,26 +19,18 @@ public class CustomCollectionAdapter extends ArrayAdapter<CustomCollection> {
     }
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final CustomCollection selectedCollection = getItem(position);
+        CustomCollection selectedCollection = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.collection_item, parent, false);
         }
 
-        final TextView collectionTitle = convertView.findViewById(R.id.collection_title);
+        TextView collectionTitle = convertView.findViewById(R.id.collection_title);
 
-        Thread splitCollectionTitleThread = new Thread() {
-            @Override
-            public void run(){
-                //extract collection name from the collection title
-                String splitTitle = selectedCollection.getTitle().split("collection")[0];
+        //remove "collection" substring from collection title
+        selectedCollection.setTitle(Splitter.on("collection").split(selectedCollection.getTitle()).iterator().next());
 
-                selectedCollection.setTitle(splitTitle);
-                collectionTitle.setText(selectedCollection.getTitle());
-            }
-        };
-
-        splitCollectionTitleThread.start();
+        collectionTitle.setText(selectedCollection.getTitle());
 
         return convertView;
     }

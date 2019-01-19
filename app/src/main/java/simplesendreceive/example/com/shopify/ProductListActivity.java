@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import retrofit2.Response;
 public class ProductListActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private ListView productListView;
-    private TextView collectionTitleTextView;
     private DataPullService apiService;
 
     @Override
@@ -27,12 +25,12 @@ public class ProductListActivity extends AppCompatActivity {
 
         apiService = RetrofitClient.getRetrofitClient().create(DataPullService.class);
 
+        //get collection the user selected
         Intent intent = getIntent();
         CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra("selectedCollection");
 
-
-        Toolbar collectionTitleTextView = findViewById(R.id.collection_title);
-        collectionTitleTextView.setTitle(selectedCollection.getTitle());
+        Toolbar collectionTitle = findViewById(R.id.collection_title);
+        collectionTitle.setTitle(selectedCollection.getTitle());
 
         populateListFromCollection(selectedCollection);
     }
@@ -80,7 +78,7 @@ public class ProductListActivity extends AppCompatActivity {
 
                         productAdapter = new ProductAdapter(getApplicationContext(), returnedProductArray.getProducts());
 
-                        productListView = findViewById(R.id.lstProducts);
+                        productListView = findViewById(R.id.productList);
                         productListView.setAdapter(productAdapter);
                     }
 
