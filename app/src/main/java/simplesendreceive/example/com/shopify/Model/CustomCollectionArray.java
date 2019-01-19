@@ -5,8 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import simplesendreceive.example.com.shopify.Model.CustomCollection;
-
 public class CustomCollectionArray {
 
     @SerializedName("custom_collections")
