@@ -4,4 +4,4 @@ I'm now a successful Shopify merchant with many collections of products, and I c
 
 # Description
 
-This repository contains an android application that fetches data from the Shopify Custom Collections REST API 😬😬. It was put together using Android Studio.
+This repository contains an android application that fetches data from the Shopify Custom Collections REST API 😬😬. It was put together using Android Studio.💻🤖
