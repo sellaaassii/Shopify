@@ -1,13 +1,17 @@
 package simplesendreceive.example.com.shopify.Activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,6 +21,7 @@ import simplesendreceive.example.com.shopify.Model.CollectArray;
 import simplesendreceive.example.com.shopify.Model.CustomCollection;
 import simplesendreceive.example.com.shopify.Model.ProductArray;
 import simplesendreceive.example.com.shopify.Adapter.ProductAdapter;
+import simplesendreceive.example.com.shopify.Network.DownloadImageBackgroundTask;
 import simplesendreceive.example.com.shopify.R;
 import simplesendreceive.example.com.shopify.Network.RetrofitClient;
 
@@ -24,6 +29,7 @@ public class ProductListActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private ListView productListView;
     private DataPullService apiService;
+    private ImageView collectionImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +42,35 @@ public class ProductListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra(getString(R.string.selectedCollection));
 
-        Toolbar collectionTitle = findViewById(R.id.collection_title);
+        Toolbar collectionTitle = findViewById(R.id.productToolbar);
         collectionTitle.setTitle(selectedCollection.getTitle());
 
+        TextView collectionTitleTextView = findViewById(R.id.collectionTitle);
+        collectionTitleTextView.setText(selectedCollection.getTitle());
+
+        TextView collectionBodyHtmlTextView = findViewById(R.id.bodyHtml);
+        collectionBodyHtmlTextView.setText(selectedCollection.getBodyHtml());
+
+        collectionImageView = findViewById(R.id.collectionImage);
+        collectionImageView.setImageBitmap(downloadCollectionImage(selectedCollection));
+
+
         populateListFromCollection(selectedCollection);
+    }
+
+    public Bitmap downloadCollectionImage(CustomCollection collection) {
+        DownloadImageBackgroundTask getCollectionImage = new DownloadImageBackgroundTask();
+        Bitmap bitmapImage = null;
+
+        try {
+            bitmapImage = (Bitmap) getCollectionImage.execute(collection.getImage().getSrc()).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return bitmapImage;
     }
 
     public void populateListFromCollection(final CustomCollection selectedCollection) {
