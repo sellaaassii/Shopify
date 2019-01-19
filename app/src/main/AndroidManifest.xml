@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".Activity.ProductListActivity"
-            android:label="@string/title_activity_other2"
+            android:label="@string/products"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
