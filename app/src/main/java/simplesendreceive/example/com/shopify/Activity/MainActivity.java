@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<CustomCollectionArray> call, Throwable t) {
-                        Log.e("Exception", t.getMessage());
+                        Log.e(getString(R.string.exception), t.getMessage());
                     }
 
                 });
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 CustomCollection selectedCollection = (CustomCollection) parent.getItemAtPosition(position);
 
                 Intent intent = new Intent(context, ProductListActivity.class);
-                intent.putExtra("selectedCollection", selectedCollection);
+                intent.putExtra(getString(R.string.selectedCollection), selectedCollection);
 
                 startActivity(intent);
             }

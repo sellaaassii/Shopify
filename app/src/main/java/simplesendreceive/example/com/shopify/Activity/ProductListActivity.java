@@ -34,7 +34,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         //get collection the user selected
         Intent intent = getIntent();
-        CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra("selectedCollection");
+        CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra(getString(R.string.selectedCollection));
 
         Toolbar collectionTitle = findViewById(R.id.collection_title);
         collectionTitle.setTitle(selectedCollection.getTitle());
@@ -68,7 +68,7 @@ public class ProductListActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<CollectArray> call, Throwable t) {
-                        Log.e("Exception", t.getMessage());
+                        Log.e(getString(R.string.exception), t.getMessage());
                     }
                 });
 
@@ -91,7 +91,7 @@ public class ProductListActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<ProductArray> call, Throwable t) {
-                        Log.e("Exception", t.getMessage());
+                        Log.e(getString(R.string.exception), t.getMessage());
                     }
                 });
             }
