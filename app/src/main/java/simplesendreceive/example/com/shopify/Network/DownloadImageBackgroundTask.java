@@ -1,4 +1,4 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Network;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;

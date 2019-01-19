@@ -1,4 +1,4 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,12 @@ import android.widget.ListView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import simplesendreceive.example.com.shopify.Adapter.CustomCollectionAdapter;
+import simplesendreceive.example.com.shopify.Model.CustomCollectionArray;
+import simplesendreceive.example.com.shopify.Network.DataPullService;
+import simplesendreceive.example.com.shopify.Model.CustomCollection;
+import simplesendreceive.example.com.shopify.R;
+import simplesendreceive.example.com.shopify.Network.RetrofitClient;
 
 public class MainActivity extends AppCompatActivity {
 

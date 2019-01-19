@@ -1,4 +1,4 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

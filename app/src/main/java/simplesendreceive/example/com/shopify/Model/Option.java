@@ -1,4 +1,4 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Model;
 
 import java.util.List;
 

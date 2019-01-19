@@ -1,7 +1,6 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Adapter;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,9 @@ import android.widget.TextView;
 import com.google.common.base.Splitter;
 
 import java.util.List;
+
+import simplesendreceive.example.com.shopify.Model.CustomCollection;
+import simplesendreceive.example.com.shopify.R;
 
 public class CustomCollectionAdapter extends ArrayAdapter<CustomCollection> {
 

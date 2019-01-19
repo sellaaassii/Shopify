@@ -1,9 +1,11 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
+import simplesendreceive.example.com.shopify.Model.CustomCollection;
 
 public class CustomCollectionArray {
 

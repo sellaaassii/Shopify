@@ -1,4 +1,4 @@
-package simplesendreceive.example.com.shopify;
+package simplesendreceive.example.com.shopify.Adapter;
 
 import android.content.Context;
 
@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import simplesendreceive.example.com.shopify.Model.Product;
+import simplesendreceive.example.com.shopify.Network.DownloadImageBackgroundTask;
+import simplesendreceive.example.com.shopify.R;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
 
