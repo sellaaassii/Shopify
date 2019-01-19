@@ -16,18 +16,26 @@ public class CustomCollectionAdapter extends ArrayAdapter<CustomCollection> {
     }
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        CustomCollection selectedCollection = getItem(position);
+        final CustomCollection selectedCollection = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.collection_item, parent, false);
         }
 
-        TextView collectionTitle = convertView.findViewById(R.id.collection_title);
+        final TextView collectionTitle = convertView.findViewById(R.id.collection_title);
 
-        //extract actual collection name from the collectiontitle
-        String splitTitle = selectedCollection.getTitle().split("collection")[0];
-        selectedCollection.setTitle(splitTitle);
-        collectionTitle.setText(selectedCollection.getTitle());
+        Thread splitCollectionTitleThread = new Thread() {
+            @Override
+            public void run(){
+                //extract collection name from the collection title
+                String splitTitle = selectedCollection.getTitle().split("collection")[0];
+
+                selectedCollection.setTitle(splitTitle);
+                collectionTitle.setText(selectedCollection.getTitle());
+            }
+        };
+
+        splitCollectionTitleThread.start();
 
         return convertView;
     }
