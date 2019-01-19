@@ -4,17 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <android.support.v7.widget.Toolbar
         android:id="@+id/collection_title"
         android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:fontFamily="monospace"
-        android:paddingLeft="10px"
-        android:paddingBottom="20px"
-        android:text="TextView"
-        android:gravity="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+    </android.support.v7.widget.Toolbar>
 
     <!--<ImageView-->
         <!--android:id="@+id/imgCollection"-->

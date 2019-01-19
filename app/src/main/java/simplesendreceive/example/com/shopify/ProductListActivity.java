@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.List;
 
@@ -29,14 +30,14 @@ public class ProductListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         CustomCollection selectedCollection = (CustomCollection) intent.getSerializableExtra("selectedCollection");
 
-        populateList(selectedCollection);
+
+        Toolbar collectionTitleTextView = findViewById(R.id.collection_title);
+        collectionTitleTextView.setTitle(selectedCollection.getTitle());
+
+        populateListFromCollection(selectedCollection);
     }
 
-    public void populateList(final CustomCollection selectedCollection) {
-//        final ImageView imageView = findViewById(R.id.imgCollection);
-
-        collectionTitleTextView = findViewById(R.id.collection_title);
-        collectionTitleTextView.setText(selectedCollection.getTitle());
+    public void populateListFromCollection(final CustomCollection selectedCollection) {
 
         Thread getProductDataBackgroundThread = new Thread() {
             @Override
@@ -47,6 +48,7 @@ public class ProductListActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call<CollectArray> call, Response<CollectArray> response) {
+                        //get the list of collects
                         CollectArray returnedCollectArray = response.body();
                         List<String> allProductIds = returnedCollectArray.getAllProductIds();
 
@@ -56,7 +58,7 @@ public class ProductListActivity extends AppCompatActivity {
                         for (int i = 1; i < allProductIds.size(); i++)
                             joinedProductIds += "," + allProductIds.get(i);
 
-                        populateList(joinedProductIds);
+                        loadProductDetails(joinedProductIds);
                     }
 
                     @Override
@@ -67,7 +69,8 @@ public class ProductListActivity extends AppCompatActivity {
 
             }
 
-            public void populateList(String joinedProductIds) {
+            public void loadProductDetails(String joinedProductIds) {
+
                 Call<ProductArray> productsFromCollects = apiService.getProductsForIds(joinedProductIds);
 
                 productsFromCollects.enqueue(new Callback<ProductArray>() {

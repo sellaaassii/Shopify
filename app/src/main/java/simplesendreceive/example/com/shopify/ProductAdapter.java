@@ -33,19 +33,19 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         //set the values of the relevant text views to selected product's values
         TextView inventoryTextView = convertView.findViewById(R.id.inventoryAmount);
         String inventoryQuantity = Integer.toString(selectedProduct.getInventoryQuantity());
-        inventoryTextView.setText(inventoryQuantity);
+        inventoryTextView.setText("Total Available: " + inventoryQuantity);
 
         TextView productNameTextView = convertView.findViewById(R.id.productTitle);
         productNameTextView.setText(selectedProduct.getTitle());
 
-        Bitmap bit = null;
+        DownloadImageBackgroundTask newImagePull = new DownloadImageBackgroundTask();
+        Bitmap bit;
 
-        DownloadImageBackgroundTask newPull = new DownloadImageBackgroundTask();
         try {
-            bit = (Bitmap) newPull.execute(selectedProduct.getImage().getSrc()).get();
+            bit = (Bitmap) newImagePull.execute(selectedProduct.getImage().getSrc()).get();
 
-            ImageView collectionImage = convertView.findViewById(R.id.productImage);
-            collectionImage.setImageBitmap(bit);
+            ImageView collectionImageView = convertView.findViewById(R.id.productImage);
+            collectionImageView.setImageBitmap(bit);
 
         } catch (InterruptedException e) {
             e.printStackTrace();

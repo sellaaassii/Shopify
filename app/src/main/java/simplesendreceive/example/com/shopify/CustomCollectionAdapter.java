@@ -23,6 +23,10 @@ public class CustomCollectionAdapter extends ArrayAdapter<CustomCollection> {
         }
 
         TextView collectionTitle = convertView.findViewById(R.id.collection_title);
+
+        //extract actual collection name from the collectiontitle
+        String splitTitle = selectedCollection.getTitle().split("collection")[0];
+        selectedCollection.setTitle(splitTitle);
         collectionTitle.setText(selectedCollection.getTitle());
 
         return convertView;

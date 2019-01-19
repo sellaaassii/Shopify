@@ -81,24 +81,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    //TODO: ON Back Pressed tingy
-
-
-//    @Override
-//    public void onBackPressed() {
-//        //super.onBackPressed();
-//        LayoutInflater inflater = getLayoutInflater();
-//        View myView = inflater.inflate(R.layout.activity_main, null, false);
-//        setContentView(myView);
-//
-//
-//        customCollectionsListView = (ListView) findViewById(R.id.customCollectionsList);
-//        populateCollectionsList();
-//        addCollectionItemListener();
-////        setContentView(R.layout.activity_main);
-//        //customCollectionsListView = (ListView) findViewById(R.id.customCollectionsList);
-//        //populateCollectionsList();
-//        //addCollectionItemListener();
-//    }
 }
