@@ -35,13 +35,21 @@
                 <TextView
                     android:id="@+id/collectionTitle"
                     android:layout_width="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content" />
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="ProximaNovaLight"
+                    android:textSize="35sp"/>
 
                 <TextView
                     android:id="@+id/bodyHtml"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="ProximaNovaLight"
+                    android:textSize="20sp"
+                    android:gravity="center" />
 
             </LinearLayout>
 

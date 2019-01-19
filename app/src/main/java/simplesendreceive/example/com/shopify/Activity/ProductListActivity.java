@@ -53,8 +53,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         collectionImageView = findViewById(R.id.collectionImage);
         collectionImageView.setImageBitmap(downloadCollectionImage(selectedCollection));
-
-
+        
         populateListFromCollection(selectedCollection);
     }
 

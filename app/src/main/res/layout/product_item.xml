@@ -25,7 +25,7 @@
             android:text="TextView"
             android:gravity="center"
             android:textColor="@color/darkGreen"
-            android:textSize="30dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/inventoryAmount"
@@ -35,7 +35,7 @@
             android:textStyle="bold"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="17dp" />
 
     </LinearLayout>
 
